@@ -6,10 +6,13 @@ Here are some classes that aren't worth making into full modules.
 
 Each class should be documented well at the top of the file, with usage and installation instructions.
 
-Here's a quick list of what's inside the pack.
+## Problems? ##
+
+Please post issues on [GitHub](http://github.com/lingo/silverstripe-bits-and-bobs/issues)
 
 ## Contents ##
 
+Here's a quick list of what's inside the pack.
 
 ### Pluraliser ###
 

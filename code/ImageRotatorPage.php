@@ -5,6 +5,24 @@
  *
  * You can either extend this class for your own use, or copy the relevant 
  * parts out as needed.
+ *
+ *
+ * Installation:
+ * 	1. Copy this code, and the javascript ImageRotator.js to your mysite folder.
+ * 	2. Make sure that $javascript_path (see below) is correctly set. Either 
+ * 	   change the code here, or change it in your _config.php using 
+ * 	   ImageRotatorPage::$javascript_path = 'x/y/z/';
+ * 	3. Copy the ImageRotator.ss tmeplate to your templates/Includes/ folder and customise as you like.
+ * 	   Important:  Keep the CSS IDs and SilverStripe variable intact or it 
+ * 	   won't work.  If you add more image panes, make sure give them CSS IDs 
+ * 	   like the others.  Eg  id="Rotator-4"
+ * 	4. Enjoy and profit!
+ *
+ * 	Author: Luke Hudson / Lingo
+ * 	
+ * 	Please post issues here if you have problems:
+ *	  	http://github.com/lingo/silverstripe-bits-and-bobs/issues
+ *
  */
 class ImageRotatorPage extends Page {
 	static $db = array(
@@ -24,6 +42,11 @@ class ImageRotatorPage extends Page {
 	 *   e.g.  ImageRotatorPage::$noimage_text = "Not found";
 	 */
 	public static $noimage_text = '[No image provided'];
+
+	/**
+	 * Alter this to reflect where you install ImageRotator.js
+	 */
+	public static $javascript_path = 'mysite/javascript/';
 
 	/**
 	 * Default dimensions for resampled images.
@@ -126,7 +149,7 @@ class ImageRotatorPage_Controller extends Page_Controller {
 	 */
 	public function init() {
 		parent::init();
-		Requirements::javascriptTemplate('mysite/javascript/ImageRotator.js', array('CycleInterval' => $this->CycleInterval));
+		Requirements::javascriptTemplate(ImageRotatorPage::$javascript_path . 'ImageRotator.js', array('CycleInterval' => $this->CycleInterval));
 	}
 	
 	/**
